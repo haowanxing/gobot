@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/qianlnk/gobot"
+	"gobot"
 )
 
 func main() {

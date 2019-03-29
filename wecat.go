@@ -20,7 +20,7 @@ import (
 
 	"github.com/qianlnk/log"
 	"github.com/qianlnk/qrcode"
-	"github.com/qianlnk/to"
+	"gobot/to"
 )
 
 type Wecat struct {
@@ -48,8 +48,8 @@ const (
 
 var (
 	Hosts = []string{
-		"webpush.wx.qq.com",
-		"webpush2.wx.qq.com",
+		"webpush.wx2.qq.com",
+		"webpush2.wx2.qq.com",
 		"webpush.wechat.com",
 		"webpush1.wechat.com",
 		"webpush2.wechat.com",

@@ -1,7 +1,7 @@
 tuling:
   url: http://www.tuling123.com/openapi/api
   keys: {
-    "lnk": {name: "lnkbot", key: "808811ad0fd34abaa6fe800b44a9556a"},
+    "采姑娘的大蘑菇": {name: "Robert", key: "626621c5dfd9a388a9048689e5f162e0"},
   }
 
 log:
