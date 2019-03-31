@@ -382,17 +382,38 @@ func (w *Wecat) getReply(msg string, uid string) (string, error) {
 		return reply.Text + " " + reply.URL, nil
 	case 302000:
 		var res string
-		news := reply.List.([]News)
-		for _, n := range news {
-			res += fmt.Sprintf("%s\n%s\n", n.Article, n.DetailURL)
+		var list = make([]News, 0)
+
+		news, ok := reply.List.([]interface{})
+		if ok {
+			jsonList, err := json.Marshal(news)
+			if err != nil {
+				return "", err
+			}
+			if err := json.Unmarshal(jsonList, &list); err != nil {
+				return "", err
+			}
+			for _, n := range list {
+				res += fmt.Sprintf("%s\n%s\n", n.Article, n.DetailURL)
+			}
 		}
 
 		return res, nil
 	case 308000:
 		var res string
-		menu := reply.List.([]Menu)
-		for _, m := range menu {
-			res += fmt.Sprintf("%s\n%s\n%s\n", m.Name, m.Info, m.DetailURL)
+		var list = make([]Menu, 0)
+		menus, ok := reply.List.([]interface{})
+		if ok {
+			jsonList, err := json.Marshal(menus)
+			if err != nil {
+				return "", err
+			}
+			if err := json.Unmarshal(jsonList, &list); err != nil {
+				return "", err
+			}
+			for _, m := range list {
+				res += fmt.Sprintf("%s\n%s\n%s\n", m.Name, m.Info, m.DetailURL)
+			}
 		}
 		return res, nil
 	default:
