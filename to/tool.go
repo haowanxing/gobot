@@ -38,7 +38,7 @@ func String(in interface{}) string {
 	case int:
 		s = strconv.Itoa(t)
 	default:
-		log.Printf("to.Int64 not match type: %v - %v", in, t)
+		log.Printf("to.String not match type: %v - %v", in, t)
 	}
 	return s
 }
@@ -57,7 +57,7 @@ func Int(in interface{}) int {
 	case []byte:
 		i, _ = strconv.Atoi(string(t))
 	default:
-		log.Printf("to.Int64 not match type: %v - %v", in, t)
+		log.Printf("to.Int not match type: %v - %v", in, t)
 	}
 	return i
 }
